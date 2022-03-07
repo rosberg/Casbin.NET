@@ -12,6 +12,7 @@
     <Description>Casbin.NET is a powerful and efficient open-source access control library for .NET (C#) projects. It provides support for enforcing authorization based on various access control models.</Description>
     <Authors>Casbin, Zhikui H</Authors>
     <Product>Casbin.NET</Product>
+    <Version>1.5.0.0</Version>
     <RepositoryType>GIT</RepositoryType>
     <Copyright>Apache License 2.0</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
