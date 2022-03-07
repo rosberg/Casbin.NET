@@ -27,6 +27,12 @@ stages:
           command: 'restore'
           feedsToUse: 'select'
 
+      - task: PowerShell@2
+        displayName: 'PowerShell Script'
+        inputs:
+          targetType: filePath
+          filePath: ./SetBuildNumberInVersions.ps1
+
       - task: DotNetCoreCLI@2
         displayName: Build projects
         inputs:
@@ -47,9 +53,9 @@ stages:
           includesymbols: true
           includesource: true
 
-      # - task: DotNetCoreCLI@2
-      #   displayName: 'dotnet push'
-      #   inputs:
-      #     command: push
-      #     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-      #     publishVstsFeed: '9a0959b1-2e35-47b9-b9f6-0982dd44e0a9'
+      - task: DotNetCoreCLI@2
+        displayName: 'dotnet push'
+        inputs:
+          command: push
+          packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+          publishVstsFeed: '9a0959b1-2e35-47b9-b9f6-0982dd44e0a9'
