@@ -27,6 +27,12 @@ stages:
           command: 'restore'
           feedsToUse: 'select'
 
+      - task: PowerShell@2
+        displayName: 'PowerShell Script'
+        inputs:
+          targetType: filePath
+          filePath: ./SetBuildNumberInVersions.ps1
+          
       - task: DotNetCoreCLI@2
         displayName: Build projects
         inputs:
