@@ -6,6 +6,7 @@ using DotNet.Globbing;
 using NetCasbin.Abstractions;
 using NetCasbin.Extensions;
 using NetCasbin.Rbac;
+using Serilog;
 
 namespace NetCasbin.Util
 {
@@ -218,8 +219,12 @@ namespace NetCasbin.Util
                     ? string.Join(";", subject1, subject2, domain)
                     : string.Join(";", subject1, subject2);
 
+
+                Log.Information("Key: {Subject1}, {Subject2}, {Domain} => {CacheKey}", subject1, subject2, cacheKey);
+
                 if (resultCache.TryGetValue(cacheKey, out bool result))
                 {
+                    Log.Information("CACHE HIT: {CacheKey}", cacheKey);
                     return result;
                 }
 
