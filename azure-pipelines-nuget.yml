@@ -6,7 +6,7 @@ variables:
 
 stages:
 - stage: Windows
-  displayName: Build and Test
+  displayName: Build and create Nuget 
   jobs:
   - job: Build
     displayName: Build and Test
