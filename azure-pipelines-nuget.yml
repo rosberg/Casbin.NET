@@ -38,3 +38,18 @@ stages:
         inputs:
           command: 'test'
           arguments: '-c $(buildConfiguration) --no-build --no-restore --verbosity normal'
+
+      - task: DotNetCoreCLI@2
+        displayName: 'dotnet pack'
+        inputs:
+          command: pack
+          packagesToPack: '**/*.csproj'
+          includesymbols: true
+          includesource: true
+
+      # - task: DotNetCoreCLI@2
+      #   displayName: 'dotnet push'
+      #   inputs:
+      #     command: push
+      #     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+      #     publishVstsFeed: '9a0959b1-2e35-47b9-b9f6-0982dd44e0a9'
